@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
+    android:background="#FFF"
     android:theme="@style/Theme.AppCompat.Light"
-    tools:context=".ui.equipment.equipmentFragment">
+    tools:context="com.are.vehiclemanager.ui.equipment.equipmentFragment">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_container"
-        android:layout_above="@+id/EquipmentBottom"/>
+        android:layout_above="@+id/EquipmentBottom" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/EquipmentBottom"
@@ -22,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        app:labelVisibilityMode="selected"
         app:itemIconTint="@drawable/bottom_navigation_color_selector"
         android:background="@drawable/bottom_navigation_background"
         app:itemTextColor="#FFFFFF"

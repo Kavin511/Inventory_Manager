@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:id="@+id/filter_update"
+    android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:gravity="center">
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context="com.are.vehiclemanager.ui.filler.FillerDataEntry">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,72 +32,112 @@
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:id="@+id/model_num"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Enter Machine Model number"
-                    android:textSize="16sp" android:inputType="textShortMessage"/>
+                    android:hint="Machine model number"
+                    android:imeOptions="actionDone"
+                    android:inputType="textShortMessage"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/oddtext"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:imeOptions="actionDone"-->
+            <!--                android:gravity="center">-->
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    style="@style/TextInputLayoutStyle"-->
+            <!--                    android:layout_margin="10dp">-->
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/filter"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="50dp"-->
+            <!--                        android:imeOptions="actionDone"-->
+            <!--                        android:hint="Type of filter 1"-->
+            <!--                        android:textSize="16sp" android:inputType="textFilter"/>-->
+            <!--                </com.google.android.material.textfield.TextInputLayout>-->
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    style="@style/TextInputLayoutStyle" >-->
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/partnum"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="50dp"-->
+            <!--                        android:imeActionLabel="@string/app_name"-->
+            <!--                        android:imeOptions="actionDone"-->
+            <!--                        android:hint="Part number of filter 1"-->
+            <!--                        android:textSize="16sp" android:inputType="textFilter"/>-->
+            <!--                </com.google.android.material.textfield.TextInputLayout>-->
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    style="@style/TextInputLayoutStyle"-->
+            <!--                    android:layout_margin="10dp">-->
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/filter2"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="50dp"-->
+            <!--                        android:hint="Type of filter 2"-->
+            <!--                        android:imeOptions="actionDone"-->
+            <!--                        android:textSize="16sp" android:inputType="textFilter"/>-->
+            <!--                </com.google.android.material.textfield.TextInputLayout>-->
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    style="@style/TextInputLayoutStyle" >-->
+            <!--                    <EditText-->
+            <!--                        android:id="@+id/partnum2"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="50dp"-->
+            <!--                        android:imeActionLabel="@string/app_name"-->
+            <!--                        android:imeOptions="actionDone"-->
+            <!--                        android:hint="Part number of filter 2"-->
+            <!--                        android:textSize="16sp" android:inputType="textFilter-->
+            <!--"/>-->
+            <!--                </com.google.android.material.textfield.TextInputLayout>-->
+            <!--            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/oddtext"
-                android:layout_margin="10dp"
                 android:orientation="vertical"
-                android:layout_gravity="center"
+                android:id="@+id/filterLayout"
+                android:layout_margin="10dp"
+                android:background="@drawable/white_text"
+                android:gravity="top">
 
-                android:gravity="center">
-                <com.google.android.material.textfield.TextInputLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/filter_container"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/TextInputLayoutStyle"
-                    android:layout_margin="10dp">
-                    <EditText
-                        android:id="@+id/filter"
+                    android:layout_height="50dp">
+
+                    <Button
+                        android:id="@+id/add_button"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="Enter type of filter 1"
-                        android:textSize="16sp" android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    style="@style/TextInputLayoutStyle" >
-                    <EditText
-                        android:id="@+id/partnum"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:imeActionLabel="@string/app_name"
-                        android:hint="Enter part number of filter 1"
-                        android:textSize="16sp" android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/TextInputLayoutStyle"
-                    android:layout_margin="10dp">
-                    <EditText
-                        android:id="@+id/filter2"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="Enter type of filter 2"
-                        android:textSize="16sp" android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    style="@style/TextInputLayoutStyle" >
-                    <EditText
-                        android:id="@+id/partnum2"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:imeActionLabel="@string/app_name"
-                        android:hint="Enter part number of filter 2"
-                        android:textSize="16sp" android:inputType="number"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_vertical|end"
+                        android:background="@drawable/add_button_bg"
+                        android:text="Add Filter Replaced"
+                        android:textAllCaps="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
 
 
@@ -102,12 +147,15 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 style="@style/TextInputLayoutStyle"    >
+
                 <EditText
                     android:id="@+id/engineoil"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Enter engine oil in L"
-                    android:textSize="16sp" android:inputType="number" />
+                    android:hint="Engine oil (litres)"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -116,26 +164,30 @@
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp"
                 >
+
                 <EditText
                     android:id="@+id/hydraulicoil"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Enter hydraulic oil in L"
+                    android:hint="Hydraulic oil (litres)"
+                    android:imeOptions="actionDone"
                     android:textSize="16sp"
-                    android:inputType="number"/>
+                    android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:id="@+id/transmissionoil"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:hint="Transmission oil (litres)"
                     android:textSize="16sp"
-                    android:hint="Enter transmission oil in L"
-                    android:inputType="number" />
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,12 +196,15 @@
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:id="@+id/gearoil"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Enter gear oil in L"
-                    android:textSize="16sp" android:inputType="number" />
+                    android:hint="Gear oil (litres)"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,13 +213,15 @@
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:id="@+id/coolantoil"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
-                    android:hint="Enter coolant oil in L"
-                    android:inputType="number" />
+                    android:hint="Coolant oil (litres)"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -172,26 +229,32 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 style="@style/TextInputLayoutStyle" >
+
                 <EditText
                     android:id="@+id/starting_reading"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:imeActionLabel="@string/app_name"
-                    android:hint="Enter Starting Reading in hours"
-                    android:textSize="16sp" android:inputType="number"/>
+                    android:hint="Starting reading (hrs)"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 style="@style/TextInputLayoutStyle" >
+
                 <EditText
                     android:id="@+id/ending_reading"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:imeActionLabel="@string/app_name"
-                    android:hint="Enter Ending Reading in hours"
-                    android:textSize="16sp" android:inputType="number"/>
+                    android:hint="Ending reading (hrs)"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -199,18 +262,18 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 style="@style/TextInputLayoutStyle" >
+
                 <EditText
                     android:id="@+id/estimated_cost"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:imeActionLabel="@string/app_name"
-                    android:hint="Enter Estimated Cost"
-                    android:textSize="16sp" android:inputType="number"/>
+                    android:hint="Estimated Cost"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
         </LinearLayout>
     </ScrollView>
-
 
 </RelativeLayout>

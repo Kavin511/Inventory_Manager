@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item>Reports</item>
+        <item>Equipment</item>
+        <item>Product finder</item>
+        <item>Settings</item>
+    </string-array>
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_report</item>
+        <item>@drawable/ic_equipment_finder</item>
+        <item>@drawable/ic_product_</item>
+        <item>@drawable/ic_settings</item>
+    </array>
+    <array name="graph_item">
+        <item>Last 7 days</item>
+        <item>Last month</item>
+        <item>Life time</item>
+    </array>
+
+</resources>

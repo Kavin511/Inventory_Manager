@@ -20,30 +20,52 @@
             android:layout_height="match_parent"
             android:gravity="top"
             android:orientation="vertical">
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
+                <EditText
+                    android:id="@+id/name_of"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Name of the Engineer/Incharge"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
                     android:id="@+id/vehiclename"
                     android:inputType="textPersonName"
-                    android:hint="Enter Vehicle name"
-                    /></com.google.android.material.textfield.TextInputLayout>
+                    android:hint="Equipment name"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
+                    android:hint="Model number"
                     android:id="@+id/model"
-                    android:hint="Enter Model number"
+                    android:imeOptions="actionDone"
                     android:inputType="textShortMessage"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -51,13 +73,15 @@
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
                 android:layout_margin="10dp">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
                     android:id="@+id/inspectionReport"
-                    android:hint="Enter Inspection Report"
-                    android:inputType="textEmailSubject"/>
+                    android:hint="Inspection Details"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailSubject" />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -65,6 +89,7 @@
                 android:text="Recommended spares :"
                 android:gravity="left"
                 android:layout_gravity="left"
+                android:fontFamily="@font/abeezee"
                 android:textSize="20sp"
                 android:padding="1dp"
                 android:layout_margin="10dp"
@@ -84,8 +109,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
+                    android:hint="Description"
                     android:id="@+id/desc"
-                    android:hint="Enter description"
+                    android:imeOptions="actionDone"
                     android:inputType="textFilter"/></com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -95,35 +121,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="16sp"
+                    android:hint="part Number"
                     android:id="@+id/partnum"
-                    android:hint="Enter part Number"
+                    android:imeOptions="actionDone"
                     android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/TextInputLayoutStyle"
                     android:layout_margin="14dp">
+
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:textSize="16sp"
                         android:id="@+id/quantity"
-
-                        android:hint="Enter Quantity in litres"
-                        android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
+                        android:hint="Quantity"
+                        android:imeOptions="actionDone"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/TextInputLayoutStyle"
                     android:layout_margin="14dp">
+
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:textSize="16sp"
                         android:id="@+id/cost"
-
-                        android:hint="Enter total Cost"
-                        android:inputType="number"/></com.google.android.material.textfield.TextInputLayout>
+                        android:hint="Estimated Cost"
+                        android:imeOptions="actionDone"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -132,41 +163,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
-                android:layout_margin="10dp"> <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/action"
+                android:layout_margin="10dp">
 
-                android:hint="Enter Action Taken"
-                android:inputType="text"
-                /></com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/action"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Action Taken"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
-                android:layout_margin="10dp">   <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/location"
+                android:layout_margin="10dp">
 
-                android:hint="Enter Location"
-                android:inputType="text"
-                /></com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Location (site details)"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextInputLayoutStyle"
-                android:layout_margin="10dp">    <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="16sp"
-                android:id="@+id/remark"
+                android:layout_margin="10dp">
 
-                android:hint="Enter Remarks"
-                android:inputType="text"
-                /></com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Remarks"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_custom"
+                android:gravity="center"
+                android:text="Add"
+                android:textAllCaps="false" />
         </LinearLayout>
 
     </ScrollView>

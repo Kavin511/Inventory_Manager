@@ -9,7 +9,6 @@
     android:clickable="false"
     android:background="#E1E1E1">
     <ProgressBar
-        android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

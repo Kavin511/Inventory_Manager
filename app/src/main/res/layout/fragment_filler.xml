@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.filler.fillerFragment">
+    android:background="#FFF"
+    tools:context="com.are.vehiclemanager.ui.filler.fillerFragment">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_container"
         android:layout_above="@+id/fillerbottom"
-        android:layout_below="@+id/toolbar"/>
+        android:layout_below="@+id/toolbar" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/fillerbottom"
@@ -22,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
-        app:labelVisibilityMode="selected"
+        app:labelVisibilityMode="auto"
         app:itemIconTint="@drawable/bottom_navigation_color_selector"
         android:background="@drawable/bottom_navigation_background"
         app:itemTextColor="#FFFFFF"

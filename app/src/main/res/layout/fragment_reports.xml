@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reports"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:backgroundTint="@color/common_bg_color"
+    android:gravity="top"
+    tools:context="com.are.vehiclemanager.Reports">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/equipment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/filter_content_bg"
+        android:elevation="10dp"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/equipment_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:fontFamily="@font/rubik_light"
+            android:padding="10dp"
+            android:text="@string/equipment_text"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            app:drawableStartCompat="@drawable/ic_equipment_finder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/equipment_report"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:text="Equipment Inspection"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            app:cornerRadius="6dp"
+            app:layout_constraintTop_toBottomOf="@+id/equipment_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/equipment"
+        android:layout_margin="10dp"
+        android:background="@drawable/filter_content_bg"
+        android:elevation="10dp"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/filter_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:fontFamily="@font/rubik_light"
+            android:padding="10dp"
+            android:text="@string/filter_text"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            app:drawableStartCompat="@drawable/ic_filter_report"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/filter_report"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:text="Oil Filters Inspection"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            app:cornerRadius="6dp"
+            app:layout_constraintTop_toBottomOf="@+id/filter_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/filter"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="1.25dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1.25dp"
+        android:background="@drawable/filter_content_bg"
+        android:elevation="10dp"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/stock_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:fontFamily="@font/rubik_light"
+            android:padding="10dp"
+            android:text="@string/stock_text"
+            android:textAlignment="textStart"
+            android:textColor="#000"
+            app:drawableStartCompat="@drawable/ic_stock_devlopemt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/stock_report"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="6dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Stock Ledger"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            app:cornerRadius="6dp"
+            app:layout_constraintTop_toBottomOf="@+id/stock_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    tools:context=".graph">
-    <LinearLayout
+    tools:context="com.are.vehiclemanager.ui.equipment.graph">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:id="@+id/graph"/>
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"/>
-</LinearLayout>
+        android:layout_gravity="top"
+        android:gravity="top">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/line_chart"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/tile"
+            android:elevation="2dp"
+            android:padding="5dp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/line_chart"
+            android:layout_margin="10dp"
+            android:spinnerMode="dropdown"
+            android:theme="@android:style/Widget.Material.DropDownItem.Spinner" />
+    </RelativeLayout>
+</ScrollView>

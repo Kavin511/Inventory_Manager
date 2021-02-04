@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/account"
-    tools:context=".ui.account.vehicle_list">
+    tools:context="com.are.vehiclemanager.ui.account.vehicle_list">
 
     <Button
         android:layout_width="wrap_content"
@@ -12,13 +12,13 @@
         android:text="Add vehicle"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
-        android:id="@+id/add_vehicle"/>
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_below="@+id/add_vehicle">-->
-<!--        -->
-<!--    </androidx.recyclerview.widget.RecyclerView>-->
+        android:id="@+id/add_vehicle" />
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_below="@+id/add_vehicle">-->
+    <!--        -->
+    <!--    </androidx.recyclerview.widget.RecyclerView>-->
 
 </FrameLayout>
