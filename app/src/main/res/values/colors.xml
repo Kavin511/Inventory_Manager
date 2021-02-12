@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4E4D68</color>
+    <color name="colorPrimaryDark">#4D4B6A</color>
+    <color name="TextOdd">#ECEBEB</color>
+    <color name="tab_background_unselected">#fff</color>
+    <color name="colorAccent">#cecece</color>
+    <color name="white">#FFFFFF</color>
+    <color name="selceted_nav">#eb3f57</color>
+    <color name="bar_inside_color">#E1F5FE</color>
+    <color name="White">#FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black_20">#000000</color>
+    <color name="odd_theme_color">#EEEDFA</color>
+    <color name="common_bg_color">#FDF8F3</color>
+    <color name="colorSubTitle">#c5c9cf</color>
+    <color name="colorTitle">#362742</color>
+    <color name="colorLayerBack">#8a56ab</color>
+    <color name="colorBack">#4E4D68</color>
+    <color name="bar_highlight">#039BE5</color>
+    <color name="gradient_start">#5770f3</color>
+    <color name="gradient_end">#8e5aeb</color>
+    <color name="profile_desc">#D1D1FF</color>
+    <color name="bg_meta_container">#000000</color>
+    <color name="profile_default_tint">#e0e0e0</color>
+    <!--    4E4D68-->
+    <!--    FDF8F3-->
+    <!--    EEEDFA-->
+
+</resources>

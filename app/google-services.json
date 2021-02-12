@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "118897367971",
+    "firebase_url": "https://are-startup.firebaseio.com",
+    "project_id": "are-startup",
+    "storage_bucket": "are-startup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118897367971:android:9e7bbfa64c5e576c8cd816",
+        "android_client_info": {
+          "package_name": "com.are.vehiclemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118897367971-l20392ubeh3ecfhejlii82khd6kr954p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEidabtY0SR1GQbsKd3NKaNIJkBZzG9sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118897367971-l20392ubeh3ecfhejlii82khd6kr954p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

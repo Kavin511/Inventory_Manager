@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context="com.are.vehiclemanager.authentication.SignUp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/imageView"
+        android:scrollbarSize="0dp"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/mail"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Username"
+                    android:inputType="textPersonName"
+                    android:padding="15dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mail"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/pass"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_password"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pass"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/phone"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_phone"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Phone number"
+                    android:inputType="phone"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_job"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_phone"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Job title"
+                    android:inputType="textShortMessage"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_phone"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Company Type"
+                    android:inputType="textShortMessage"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_phone"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="Company Name"
+                    android:inputType="textShortMessage"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="@string/postal_address"
+                    android:inputType="textPostalAddress"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF">
+
+                <EditText
+                    android:id="@+id/et_pincode"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/et_phone"
+                    android:ems="10"
+                    android:fontFamily="@font/rubik_light"
+                    android:hint="@string/pin_code"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:selectAllOnFocus="true"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_custom"
+                android:fontFamily="@font/rubik_medium"
+                android:gravity="center"
+                android:text="@string/create_account"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</RelativeLayout>
