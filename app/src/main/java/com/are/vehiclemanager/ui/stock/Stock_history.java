@@ -22,11 +22,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.CSVWriter;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataRepository;
-import com.are.vehiclemanager.dp.DataViewAdapter;
+import com.are.vehiclemanager.db.CSVWriter;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataRepository;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;

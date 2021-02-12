@@ -1,10 +1,11 @@
-package com.are.vehiclemanager.dp;
+package com.are.vehiclemanager.db;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public interface DataDBDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(DataDB dataDB);
+
+    @Update
+    void update(DataDB dataDB);
 
     @Query("DELETE FROM DATADB")
     void deleteAll();

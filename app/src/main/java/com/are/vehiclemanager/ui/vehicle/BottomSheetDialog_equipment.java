@@ -10,9 +10,9 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -127,9 +128,9 @@ public class BottomSheetDialog_equipment extends BottomSheetDialogFragment {
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     DataDB dataDB = new DataDB(k, Long.parseLong(timeStamp), "vehicle", "0", "date");
                     dataDBViewModel.insert(dataDB, getContext());
-                    db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("vehicle_details").add(vehicles);
-                    dismiss();
+                    db.collection("users").document(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).collection("vehicle_details").add(vehicles);
                     dataViewAdapter.notifyDataSetChanged();
+                    dismiss();
 //                            db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("vehicles").add(vehicles).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 //                                @Override
 //                                public void onSuccess(DocumentReference documentReference) {

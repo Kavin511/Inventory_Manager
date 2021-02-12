@@ -15,10 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -102,7 +101,7 @@ public class Account_edit_dailog extends BottomSheetDialogFragment {
         DataDBViewModel dataDBViewModel;
         final String[] mail = {""};
         final long[] time_stamp = new long[1];
-        dataDBViewModel = new ViewModelProvider((ViewModelStoreOwner) requireActivity()).get(DataDBViewModel.class);
+        dataDBViewModel = new ViewModelProvider(requireActivity()).get(DataDBViewModel.class);
         dataDBViewModel.getGetRecentData(getContext(), "profile").observe(requireActivity(), new Observer<List<DataDB>>() {
             @Override
             public void onChanged(List<DataDB> dataDBS) {

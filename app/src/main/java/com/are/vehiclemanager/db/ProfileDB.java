@@ -1,4 +1,4 @@
-package com.are.vehiclemanager.dp;
+package com.are.vehiclemanager.db;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

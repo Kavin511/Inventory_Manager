@@ -1,4 +1,4 @@
-package com.are.vehiclemanager.dp;
+package com.are.vehiclemanager.db;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -49,6 +49,10 @@ public class DataRepository {
     }
 
     void insert(DataDB dataDB, Context context) {
+        new insertAsyncTask(getDataDAO(context)).execute(dataDB);
+    }
+
+    void update(DataDB dataDB, Context context) {
         new insertAsyncTask(getDataDAO(context)).execute(dataDB);
     }
 

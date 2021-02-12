@@ -8,21 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
@@ -248,30 +242,32 @@ public class Stock_edit_dialog extends BottomSheetDialogFragment {
                 DataDB dataDB = new DataDB(k, timestmp, "stock", approximate_price_, time);
                 dataDBViewModel.insert(dataDB, getContext());
                 dataViewAdapter.notifyDataSetChanged();
-                db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("stock").document().update(stock).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            serial_number.setText("");
-                            initial_stock.setText("");
-                            stock_in.setText("");
-                            stock_out.setText("");
-                            final_stock.setText("");
-                            invoice_num.setText("");
-                            supplier_name.setText("");
-                            supplier_company.setText("");
-                            remarks.setText("");
-                            Toast.makeText(getContext(), "Stock updated Successfully!", Toast.LENGTH_LONG).show();
-                            dismiss();
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Stock not added,Try after some time", Toast.LENGTH_LONG).show();
-                        dismiss();
-                    }
-                });
+                dismiss();
+//                db.collection("users").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).collection("stock").document().update(stock).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+////                            serial_number.setText("");
+////                            initial_stock.setText("");
+////                            stock_in.setText("");
+////                            stock_out.setText("");
+////                            final_stock.setText("");
+////                            invoice_num.setText("");
+////                            supplier_name.setText("");
+////                            supplier_company.setText("");
+////                            remarks.setText("");
+////                            Toast.makeText(getActivity(), "Updated successfully", Toast.LENGTH_SHORT).show();
+//                            dismiss();
+//                        }
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+////                        Toast.makeText(getActivity(), "Update failed", Toast.LENGTH_SHORT).show();
+//                        Log.d(TAG, "onFailure: ");
+//                        dismiss();
+//                    }
+//                });
             }
         });
         return v;

@@ -14,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -181,9 +181,10 @@ public class Stock_data_entry extends Fragment {
                                 approximate_price_ +
                                 ",Remarks :," +
                                 remarks_;
-                        assert time_stamp != null;
-                        DataDB dataDB = new DataDB(k, Long.parseLong(time_stamp), "stock", approximate_price_, time);
-                        dataDBViewModel.insert(dataDB, getContext());
+                        if (time_stamp != null) {
+                            DataDB dataDB = new DataDB(k, Long.parseLong(time_stamp), "stock", approximate_price_, time);
+                            dataDBViewModel.insert(dataDB, getContext());
+                        }
                     }
                 }
             }
@@ -259,6 +260,7 @@ public class Stock_data_entry extends Fragment {
                 String timeStamp = "" + Calendar.getInstance().getTimeInMillis();
                 stock.put("timestamp", timeStamp);
                 stock.put("time", time);
+
                 DataDB dataDB = new DataDB(k, Long.parseLong(timeStamp), "stock", approximate_price_, time);
                 dataDBViewModel.insert(dataDB, getContext());
                 dataViewAdapter.notifyDataSetChanged();

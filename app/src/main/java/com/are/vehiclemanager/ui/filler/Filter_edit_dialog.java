@@ -8,22 +8,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,7 +44,7 @@ public class Filter_edit_dialog extends BottomSheetDialogFragment {
     private static final String ARG_PARAM2 = "param2";
     static DataDB dataDB = null;
     static int n1 = 0, n2 = 0;
-    EditText hydraulicoil, engineoil, transmissionoil, gearoil, coolantoil, filter, partnumm, estimated_cost, ending_reading, starting_reading, model_num, filter2, partnum;
+    EditText hydraulicoil, engineoil, transmissionoil, gearoil, coolantoil, filter, partnumm, estimated_cost, ending_reading, starting_reading, model_num, filter2, partnum, spinner;
     Button add_filler, add_button;
     ExtendedFloatingActionButton description_add;
     LinearLayout linearLayout;
@@ -112,15 +108,51 @@ public class Filter_edit_dialog extends BottomSheetDialogFragment {
         add_button = v.findViewById(R.id.add_button);
         linearLayout = v.findViewById(R.id.filterLayout);
         description_add = v.findViewById(R.id.description_add);
+        spinner = v.findViewById(R.id.spinner);
         Map<String, Object> filler = new HashMap<>();
         Date currentTime = Calendar.getInstance().getTime();
         Calendar calendar = Calendar.getInstance();
-        dataDBViewModel = new DataDBViewModel((Application) getContext().getApplicationContext());
+        dataDBViewModel = new DataDBViewModel((Application) requireContext().getApplicationContext());
         dataViewAdapter = new DataViewAdapter(getContext());
         List<View> str = new ArrayList<>();
         description_layout = v.findViewById(R.id.description_layout);
-        String[] arr = dataDB.getData().split(",");
+//        String[] arr = dataDB.getData().split(",");
         long timestmp = dataDB.getTimeStamp();
+//        Spinner spinner=v.findViewById(R.id.spinner);
+//        dataDBViewModel=new ViewModelProvider((ViewModelStoreOwner) requireContext()).get(DataDBViewModel.class);
+//        dataDBViewModel.getGetRecentData(getActivity().getApplicationContext(),"vehicle").observe(getActivity(), new Observer<List<DataDB>>() {
+//            @Override
+//            public void onChanged(List<DataDB> dataDBS) {
+//                List<String> categories = new ArrayList<String>();
+//                int n=0;
+//                for (DataDB dataDB:dataDBS)
+//                {
+//                    String[] val=dataDB.getData().split(",");
+//                    categories.add(val[1]);
+//                    n++;
+//                }
+//                if (dataDBS.size()==0)
+//                {
+//                    Toast.makeText(getActivity().getApplicationContext(), "No equipments added, add equipments to select equipments", Toast.LENGTH_SHORT).show();
+//                }
+//                if (n==dataDBS.size()) {
+//                    ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categories);
+//                    dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                    spinner.setAdapter(dataAdapter);
+//                }
+//            }
+//        });
+//        final String[] spinner_item = {""};
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                spinner_item[0] = (String) adapterView.getItemAtPosition(i);
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 //        if (arr.length==22)
 //        {
 //            model_num.setText(arr[1]);
@@ -195,6 +227,8 @@ public class Filter_edit_dialog extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 String hydraulic = hydraulicoil.getText().toString().trim().length() > 0 ? hydraulicoil.getText().toString().trim() : "N/A";
                 hydraulicoil.setText("");
+                String spinnerText = spinner.getText().toString().trim().length() > 0 ? spinner.getText().toString().trim() : "N/A";
+                spinner.setText("");
                 String engine = engineoil.getText().toString().trim().length() > 0 ? engineoil.getText().toString().trim() : "N/A";
                 engineoil.setText("");
                 String transmission = transmissionoil.getText().toString().trim().length() > 0 ? transmissionoil.getText().toString().trim() : "N/A";
@@ -219,12 +253,12 @@ public class Filter_edit_dialog extends BottomSheetDialogFragment {
                 filter.setText("");
                 String partnumm_ = ",Filter part number 1:," + (partnumm.getText().toString().trim().length() > 0 ? partnumm.getText().toString().trim() : "N/A");
                 partnumm.setText("");
-                String filter_details = filter_ + partnumm_;
+                StringBuilder filter_details = new StringBuilder(filter_ + partnumm_);
                 for (View temp : str) {
                     l++;
                     EditText filter = temp.findViewById(R.id.filter);
                     EditText partnum = temp.findViewById(R.id.partnum);
-                    filter_details += (",Filter type " + l + ":," + (filter.getText().toString().trim().length() > 0 ? filter.getText().toString().trim() : "N/A")) + (",Filter Part number" + l + ":," + (partnum.getText().toString().trim().length() > 0 ? partnum.getText().toString().trim() : "N/A"));
+                    filter_details.append(",Filter type ").append(l).append(":,").append(filter.getText().toString().trim().length() > 0 ? filter.getText().toString().trim() : "N/A").append(",Filter Part number").append(l).append(":,").append(partnum.getText().toString().trim().length() > 0 ? partnum.getText().toString().trim() : "N/A");
                     filter.setText("");
                     partnum.setText("");
                 }
@@ -239,25 +273,27 @@ public class Filter_edit_dialog extends BottomSheetDialogFragment {
                 filler.put("starting", starting);
                 filler.put("ending", ending);
                 filler.put("model_num", model);
-                filler.put("filter", filter_details);
-                String k = "Model number :," + model + filter_details + ",Engine oil :," + engine + ",Hydraulic oil :," + hydraulic + ",Transmission oil :," + transmission + ",Gear oil :," + gear + ",Coolant oil :," + coolant + ",Starting reading :," + starting + ",Ending reading :," + ending + ",Estimated cost :," + cost + ",";
+                filler.put("equipment", spinnerText);
+                filler.put("filter", filter_details.toString());
+                String k = "Equipment : ," + spinnerText + ",Model number :," + model + filter_details + ",Engine oil :," + engine + ",Hydraulic oil :," + hydraulic + ",Transmission oil :," + transmission + ",Gear oil :," + gear + ",Coolant oil :," + coolant + ",Starting reading :," + starting + ",Ending reading :," + ending + ",Estimated cost :," + cost + ",";
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                String userid = firebaseAuth.getCurrentUser().getUid();
-                DataDB dataDB = new DataDB(k, timestmp, "filter", cost, date);
-                dataDBViewModel.insert(dataDB, getContext());
-                db.collection("users").document(userid).collection("filter_details").add(filler).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getContext(), "Filter data updated successfully", Toast.LENGTH_SHORT).show();
-                        dismiss();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Error occurred,Data not updated in cloud", Toast.LENGTH_SHORT).show();
-                        dismiss();
-                    }
-                });
+                String userid = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
+                DataDB data = new DataDB(k, timestmp, "filter", cost, date);
+                dataDBViewModel.update(data, requireActivity().getApplicationContext());
+                dismiss();
+//                db.collection("users").document(userid).collection("filter_details").document().update(filler).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(getActivity().getApplicationContext(), "Filter data updated successfully", Toast.LENGTH_SHORT).show();
+//                        dismiss();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getActivity().getApplicationContext(), "Error occurred,Data not updated in cloud", Toast.LENGTH_SHORT).show();
+//                        dismiss();
+//                    }
+//                });
             }
         });
         return v;

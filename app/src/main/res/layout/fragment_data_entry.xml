@@ -40,7 +40,10 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:theme="@style/Widget.AppCompat.Light.DropDownItem.Spinner" />
+                style="@style/TextInputLayoutStyle"
+                android:background="#f2f2f2"
+                android:elevation="1dp"
+                android:pointerIcon="context_menu" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayoutStyle"

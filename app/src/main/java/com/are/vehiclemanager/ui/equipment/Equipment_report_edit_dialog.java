@@ -2,25 +2,21 @@ package com.are.vehiclemanager.ui.equipment;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -41,7 +37,7 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     static DataDB dataDB = null;
-    EditText vehiclename, model, inspectionReport, desc, partnum, quantity, cost, action, location, remark, name;
+    EditText vehiclename, model, inspectionReport, desc, partnum, quantity, cost, action, location, remark, name, spinner;
     Button Add;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DataDBViewModel dataDBViewModel;
@@ -71,7 +67,6 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,11 +93,23 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
         remark = v.findViewById(R.id.remark);
         action = v.findViewById(R.id.action);
         Add = v.findViewById(R.id.add_eq_report);
+        spinner = v.findViewById(R.id.spinner);
+        Log.d("dialog", "onCreateView: " + dataDB.getData());
+        String[] str = dataDB.getData().split("[,]");
+//        vehiclename.setText(str[1]);
+//        name.setText(str[3]);
+//        inspectionReport.setText(str[1]);
+//        desc.setText("");
+//        partnum.setText("");
+//        quantity.setText(str[15]);
+//        cost.setText("");
+//        location.setText(str[21]);
+//        remark.setText(str[23]);
+//        model.setText("");
+//        action.setText("");
         dataDBViewModel = new DataDBViewModel((Application) getContext().getApplicationContext());
         dataViewAdapter = new DataViewAdapter(getContext());
         long time_ = dataDB.getTimeStamp();
-
-
         Add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +135,7 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
                 model.setText("");
                 String S_action = action.getText().toString().trim().length() > 0 ? action.getText().toString() : "N/A";
                 action.setText("");
+                String spinnerText = spinner.getText().toString().trim().length() > 0 ? spinner.getText().toString() : "N/A";
                 Map<String, Object> equipment = new HashMap<>();
 //                ProgressDialog progressDialog=new ProgressDialog(getActivity());
 //                progressDialog.setContentView(R.layout.progressdialog);
@@ -151,7 +159,8 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
                 String time = currentTime.toString().trim();
                 equipment.put("date", date);
                 equipment.put("time", time);
-                String k = "Name of the engineer/incharge :," + incharge + ",Equipment name :," + S_vehiclename
+                equipment.put("Serial number", spinnerText);
+                String k = "Serial number : ," + spinnerText + ",Name of the engineer/incharge :," + incharge + ",Equipment name :," + S_vehiclename
                         + ",Model number :," + S_model
                         + ",Inspection details :," + S_inspectionReport
                         + ",Description :," + S_desc
@@ -161,24 +170,24 @@ public class Equipment_report_edit_dialog extends BottomSheetDialogFragment {
                         + ",Action taken :," + S_action
                         + ",Location :," + S_location
                         + ",Remark :," + S_remark;
-                DataDB dataDB = new DataDB(k, time_, "equipment", S_cost, date);
-                dataDBViewModel.insert(dataDB, getContext());
+                DataDB data = new DataDB(k, time_, "equipment", S_cost, date);
+                dataDBViewModel.insert(data, getContext());
                 dataViewAdapter.notifyDataSetChanged();
+                dismiss();
                 String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                db.collection("users").document(userid).collection("Equipment_details").add(equipment).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getActivity(), "Equipment Data updated successfully !", Toast.LENGTH_LONG).show();
-                        dismiss();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "Error Occurred,Data not uploaded to cloud", Toast.LENGTH_LONG).show();
-                        dismiss();
-                    }
-                });
+//                db.collection("users").document(userid).collection("Equipment_details").document().update(equipment).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(getActivity(), "Updated successfully", Toast.LENGTH_SHORT).show();
+//                        dismiss();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getActivity(), "Error Occurred,Data not uploaded to cloud", Toast.LENGTH_LONG).show();
+//
+//                    }
+//                });
             }
         });
         return v;

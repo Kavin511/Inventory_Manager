@@ -6,24 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.are.vehiclemanager.R;
-import com.are.vehiclemanager.dp.DataDB;
-import com.are.vehiclemanager.dp.DataDBViewModel;
-import com.are.vehiclemanager.dp.DataViewAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.are.vehiclemanager.db.DataDB;
+import com.are.vehiclemanager.db.DataDBViewModel;
+import com.are.vehiclemanager.db.DataViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -147,23 +139,23 @@ public class Vehicle_update_dialog extends BottomSheetDialogFragment {
                             ",Unique number :," +
                             s_reg_num;
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    DataDB dataDB = new DataDB(k, timestmp, "vehicle", "0", "date");
-                    dataDBViewModel.insert(dataDB, getContext());
+                    DataDB data = new DataDB(k, timestmp, "vehicle", "0", "date");
+                    dataDBViewModel.insert(data, getContext());
                     dataViewAdapter.notifyDataSetChanged();
-                    db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("vehicles").add(vehicles).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            dismiss();
-                            db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("vehicles").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(getContext(), "Vehicle updated Successfully", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                        }
-                    });
+//                    db.collection("users").document(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).collection("vehicles").add(vehicles).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                        @Override
+//                        public void onSuccess(DocumentReference documentReference) {
+//                            dismiss();
+//                            db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("vehicles").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                    if (task.isSuccessful()) {
+//                                        Toast.makeText(getContext(), "Vehicle updated Successfully", Toast.LENGTH_LONG).show();
+//                                    }
+//                                }
+//                            });
+//                        }
+//                    });
                 }
             }
         });

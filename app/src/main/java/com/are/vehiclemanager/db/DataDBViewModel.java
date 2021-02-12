@@ -1,5 +1,5 @@
 
-package com.are.vehiclemanager.dp;
+package com.are.vehiclemanager.db;
 
 import android.app.Application;
 import android.content.Context;
@@ -51,5 +51,9 @@ public class DataDBViewModel extends AndroidViewModel {
 
     public void insert(DataDB dataDB, Context context) {
         dataRepository.insert(dataDB, context);
+    }
+
+    public void update(DataDB dataDB, Context context) {
+        dataRepository.update(dataDB, context);
     }
 }

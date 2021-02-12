@@ -1,4 +1,4 @@
-package com.are.vehiclemanager.dp;
+package com.are.vehiclemanager.db;
 
 import android.content.Context;
 import android.text.Html;
